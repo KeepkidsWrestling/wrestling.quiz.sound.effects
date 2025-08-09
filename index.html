@@ -1,0 +1,93 @@
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>So You Think You Know Wrestling?</title>
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <!-- Loader Splash (2.5s) -->
+        <div id="loader" style="display:flex;">
+          <video id="loaderVideo"
+                 autoplay
+                 muted
+                 playsinline
+                 preload="auto"
+                 poster="https://i.imgur.com/NLTkGlY.jpg">
+            <source src="https://i.imgur.com/NLTkGlY.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="startScreen" style="text-align:center; padding:20px;">
+          <h1>So You Think You Know Wrestling?</h1>
+          <p>
+            This is a timed challenge for true wrestling fans! Watch a quick clip of a move, then you’ll have
+            <strong>10 seconds</strong> to correctly name it.
+          </p>
+          <p>
+            You only get <strong>3 strikes</strong> before it’s game over. Let’s see if you really know how to wrestle!
+          </p>
+          <button id="startBtn">▶️ Start Game</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game" style="display:none;">
+          <h1>So You Think You Know Wrestling</h1>
+
+          <!-- Score and Hearts -->
+          <div id="score">
+            Score: 0<br>
+            High Score: 0<br>
+            <!-- Hearts will be injected dynamically by JS -->
+          </div>
+
+          <!-- Win Animation -->
+          <div id="winAnimation" style="display:none;"></div>
+
+          <!-- Timer -->
+          <div id="timer">Time Left: <span id="timeLeft">10</span>s</div>
+
+          <!-- Wrestling Move Image -->
+          <img id="moveImage" src="" width="300" alt="Wrestling Move"><br><br>
+
+          <!-- Answer Choices -->
+          <div id="choicesWrapper">
+            <div id="choices">
+              <button id="button1"></button>
+              <button id="button2"></button>
+              <button id="button3"></button>
+              <button id="button4"></button>
+            </div>
+          </div>
+
+          <!-- Feedback and Score -->
+          <div id="feedback" style="margin-top:10px;"></div>
+          <div id="finalScore" style="margin-top:10px;"></div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" style="display: none; justify-content:center; align-items:center; flex-direction:column; text-align:center;">
+          <div id="gameOverContent">
+            <!-- Game over image will be set dynamically -->
+            <p id="finalStats"></p>
+            <button onclick="restartGame()"></button>
+          </div>
+        </div>
+      </body>
+    </html>
+
+    <!-- Sounds -->
+  <audio id="sound-correct" preload="auto" src="https://keepkidswrestling.github.io/wrestling.quiz.sound.effects/correct-356013.mp3"></audio>
+  <audio id="sound-wrong" preload="auto" src="https://keepkidswrestling.github.io/wrestling.quiz.sound.effects/incorrect-buzzer-374194.mp3"></audio>
+  <audio id="sound-over" preload="auto" src="https://keepkidswrestling.github.io/wrestling.quiz.sound.effects/nuclear-explosion-386181.mp3"></audio>
+  <audio id="sound-restart" preload="auto" src="https://keepkidswrestling.github.io/wrestling.quiz.sound.effects/video-game-power-up-sound-effect-384657.mp3"></audio>
+  <audio id="sound-tick" preload="auto" src="https://keepkidswrestling.github.io/wrestling.quiz.sound.effects/times.up.sonic.sound.mp3"></audio>
+<audio id="sound-clock" preload="auto"
+src="https://keepkidswrestling.github.io/wrestling.quiz.sound.effects/clock-tick-tock-sfx-379470.mp3">
+</audio>
+
+  <script src="script.js"></script>
+  </body>
+</html>
